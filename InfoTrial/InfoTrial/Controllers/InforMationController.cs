@@ -26,27 +26,27 @@ namespace InfoTrial.Controllers
 
         // POST: InforMation/Create
         [HttpPost]
-        // [ValidateAntiForgeryToken]
-        //public ActionResult Create(Models.InforMation info)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            Models.InfoDBHandle idb = new Models.InfoDBHandle();
-        //            idb.AddInformation(info);
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Models.InforMation info)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Models.InfoDBHandle idb = new Models.InfoDBHandle();
+                    idb.AddInformation(info);
 
-        //            return RedirectToAction("Index");
-        //        }
-        //        ViewBag.Message = " Details Added Successfully";
-        //        return View();
-        //    }
-        //    catch
-        //    {
+                    return RedirectToAction("Index");
+                }
+                ViewBag.Message = " Details Added Successfully";
+                return View();
+            }
+            catch
+            {
 
-        //        return View();
-        //    }
-        //}
+                return View();
+            }
+        }
 
         // GET: InforMation/Edit/5
         public ActionResult Edit(int id)
